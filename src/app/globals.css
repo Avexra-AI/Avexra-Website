@@ -20,7 +20,7 @@
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
@@ -186,7 +186,7 @@ html {
   text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
 }
 .glass-panel:hover {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 1);
   border-color: rgba(70, 19, 236, 0.4);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
     0 4px 6px -2px rgba(0, 0, 0, 0.025), 0 0 20px rgba(70, 19, 236, 0.1);

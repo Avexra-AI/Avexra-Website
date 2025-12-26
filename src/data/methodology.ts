@@ -17,7 +17,7 @@ export const methodologySteps: MethodologyStep[] = [
   },
   {
     id: 2,
-    title: "Intelligent Architecture",
+    title: "Intelligent     Architecture",
     description:
       "Blueprinting agentic workflows and selecting the optimal LLM stack for your needs.",
     duration: "Week 3",
