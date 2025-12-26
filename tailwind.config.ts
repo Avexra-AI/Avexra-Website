@@ -6,18 +6,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#4f46e5",
-        "primary-dim": "#4338ca",
-        "primary-light": "#818cf8",
-        "primary-dark": "#2563eb",
-        "background-light": "#f8fafc",
-        "surface-light": "#ffffff",
-        "surface-dim": "#f1f5f9",
-        "text-main": "#0f172a",
-        "text-muted": "#64748b",
-        glass: "rgba(255, 255, 255, 0.7)",
-        "glass-border": "rgba(255, 255, 255, 0.5)",
+        brand: {
+          primary: "var(--brand-primary)",
+          secondary: "var(--brand-secondary)",
+          accent: "var(--brand-accent)",
+          glow: "var(--brand-glow)",
+        },
+
+        surface: {
+          bg: "var(--surface-bg)",
+          main: "var(--surface-main)",
+          muted: "var(--surface-muted)",
+        },
+
+        text: {
+          primary: "var(--text-primary)",
+          secondary: "var(--text-secondary)",
+          muted: "var(--text-muted)",
+        },
+
+        border: {
+          subtle: "var(--border-subtle)",
+        },
       },
+
       fontFamily: {
         sans: ["Inter", "sans-serif"],
       },

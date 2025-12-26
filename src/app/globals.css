@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --brand-primary: #3B6FE2;
+  --brand-secondary: #1E40AF;
+  --brand-accent: #6D28D9;
+  --brand-glow: #9333EA;
+
+  --surface-bg: #f8fafc;
+  --surface-main: #ffffff;
+  --surface-muted: #f1f5f9;
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --border-subtle: #e2e8f0;
+}
+
 .glass-panel {
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(12px);

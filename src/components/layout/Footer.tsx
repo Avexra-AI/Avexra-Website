@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-slate-200 pt-16 pb-10">
+    <footer className="relative bg-white border-t border-slate-200 pt-16 pb-10">
       <div className="max-w-[1280px] mx-auto px-6">
 
         {/* TOP */}
