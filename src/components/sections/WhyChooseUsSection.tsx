@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useCountUp } from "@/hooks/useCountUp";
 import { whyChooseFeatures, whyChooseStats } from "@/data/whyChooseUs";
 import Background from "../layout/Background";
+import Link from "next/link";
 
 export default function WhyChooseUsSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -85,7 +86,7 @@ export default function WhyChooseUsSection() {
               </p>
               <div className="flex items-center gap-4">
                 <button className="group flex items-center gap-2 px-7 py-3 rounded-full bg-slate-900 text-white font-semibold hover:bg-indigo-600 transition-all shadow-lg">
-                  Start Building
+                  <Link href="/contact">Start Building</Link>
                   <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">
                     arrow_forward
                   </span>

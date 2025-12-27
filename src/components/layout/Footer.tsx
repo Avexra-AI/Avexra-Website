@@ -31,13 +31,13 @@ export default function Footer() {
             <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-500">
               <ContactItem
                 icon="mail"
-                text="info@avexra.ai"
-                href="mailto:info@avexra.ai"
+                text="avexraai@gmail.com"
+                href="mailto:avexraai@gmail.com"
               />
               <ContactItem
                 icon="phone"
-                text="+1-703-935-1919"
-                href="tel:+17039351919"
+                text="+91 761 829 3495"
+                href="tel:+917618293495"
               />
               <ContactItem
                 icon="location"
@@ -75,7 +75,7 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <SocialIcon
               type="instagram"
-              href="https://instagram.com/avexraai"
+              href="https://instagram.com/avexra.ai"
             />
             <SocialIcon
               type="linkedin"

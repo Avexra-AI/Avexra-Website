@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ContactSection() {
   return (
     <section
@@ -153,7 +155,7 @@ export default function ContactSection() {
                   type="button"
                   className="group mt-2 w-full h-14 bg-primary text-white font-bold text-lg rounded-xl transition-all flex items-center justify-center gap-2"
                 >
-                  Initialize Project
+                  <Link href="mailto:avexraai@gmail.com">Initialize Project</Link>
                   <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
                     arrow_forward
                   </span>
@@ -162,7 +164,7 @@ export default function ContactSection() {
                 <p className="text-center text-xs text-slate-500 mt-2 font-medium">
                   Prefer to talk?{" "}
                   <a
-                    href="#"
+                    href="tel:+917618293495" target="_blank" rel="noopener noreferrer"
                     className="text-slate-800 hover:text-primary hover:underline font-semibold underline-offset-4"
                   >
                     Book a call directly
