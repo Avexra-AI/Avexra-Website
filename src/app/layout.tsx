@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Avexra AI",
+icons: {
+    icon: "/icons/favicon.ico",
+  },
   description: "Intelligent Systems That Work For You",
 };
 
