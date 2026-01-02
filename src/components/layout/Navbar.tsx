@@ -81,7 +81,7 @@ export default function Navbar() {
           >
             
             <span
-              className={`px-5 py-2 text-sm font-medium transition-all
+              className={`relative group inline-flex items-center px-5 py-2 text-sm font-medium transition-all
                 rounded-full cursor-pointer
                 shadow-sm
                 ${
