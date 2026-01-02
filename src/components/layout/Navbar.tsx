@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import SolutionsMegaMenu from "./SolutionsMegaMenu";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const closeTimer = useRef<NodeJS.Timeout | null>(null);
+  const pathname = usePathname();
+  const isSolutionsActive = pathname.startsWith("/solutions");
 
   const links = [
     { label: "Home", href: "/" },
@@ -49,19 +52,30 @@ export default function Navbar() {
         {/* LINKS */}
         <div className="hidden md:flex items-center gap-1 bg-surface-dim/80 rounded-full p-1 border border-slate-200 backdrop-blur-md overflow-visible">
 
-          {links.map(({ label, href }) => (
+         
+
+          {links.map(({ label, href }) => {
+            const isActive = pathname === href;
+          return(
             <Link
               key={label}
               href={href}
-              className="px-5 py-2 text-sm font-medium text-slate-600
-                hover:text-slate-900 transition-colors
-                rounded-full hover:bg-white relative group
-                shadow-sm hover:shadow"
+              className={`px-5 py-2 text-sm font-medium rounded-full transition-all shadow-sm relative group 
+                ${
+                  isActive
+                   ? "text-slate-900 bg-white shadow"
+                   : "text-slate-600 hover:text-slate-900 hover:bg-white hover:shadow"
+              } 
+              `}
             >
               {label}
-              <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all group-hover:w-4" />
+              <span className={`absolute bottom-1 left-1/2-translate-x-1/2 w-0 h-0.5  bg-primary rounded-full transition-all
+                ${isActive ? "w-0" : "w-0 group-hover:w-4"}
+                `}
+                />
             </Link>
-          ))}
+          );
+})}
 
           {/* ✅ SOLUTIONS (FIXED) */}
           <div
@@ -69,14 +83,25 @@ export default function Navbar() {
             onMouseEnter={openSolutions}
             onMouseLeave={closeSolutions}
           >
+            
+
+            
             <span
-              className="px-5 py-2 text-sm font-medium text-slate-600
-                hover:text-slate-900 transition-all
-                rounded-full hover:bg-white cursor-pointer
-                shadow-sm hover:shadow"
+              className={`px-5 py-2 text-sm font-medium transition-all
+                rounded-full cursor-pointer
+                shadow-sm
+                ${
+                  isSolutionsActive
+                  ? " text-slate-900 hover:bg-white shadow"
+                  : "text-slate-600 hover:text-slate-900 hover:bg-white hover:shadow"
+                }`}
             >
               Solutions
+
             </span>
+
+
+
 
             {/* 🔽 Mega Menu INSIDE same hover zone */}
             {solutionsOpen && (
