@@ -50,9 +50,7 @@ export default function Navbar() {
         </Link>
 
         {/* LINKS */}
-        <div className="hidden md:flex items-center gap-1 bg-surface-dim/80 rounded-full p-1 border border-slate-200 backdrop-blur-md overflow-visible">
-
-         
+        <div className="hidden md:flex items-center gap-1 bg-surface-dim/70 rounded-full p-1 border border-slate-200 backdrop-blur-md overflow-visible">
 
           {links.map(({ label, href }) => {
             const isActive = pathname === href;
@@ -63,28 +61,24 @@ export default function Navbar() {
               className={`px-5 py-2 text-sm font-medium rounded-full transition-all shadow-sm relative group 
                 ${
                   isActive
-                   ? "text-slate-900 bg-white shadow"
-                   : "text-slate-600 hover:text-slate-900 hover:bg-white hover:shadow"
-              } 
-              `}
-            >
+                   ? "text-black bg-white shadow"
+                   : "text-slate-800 hover:text-black hover:bg-white hover:shadow"
+                }`}>
               {label}
-              <span className={`absolute bottom-1 left-1/2-translate-x-1/2 w-0 h-0.5  bg-primary rounded-full transition-all
-                ${isActive ? "w-0" : "w-0 group-hover:w-4"}
-                `}
-                />
+              <span
+                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-primary rounded-full transition-all
+                  ${isActive ? "w-4" : "w-0 group-hover:w-4"}`}
+              />
             </Link>
           );
-})}
+          })}
 
-          {/* ✅ SOLUTIONS (FIXED) */}
+          {/* ✅ SOLUTIONS */}
           <div
             className=""
             onMouseEnter={openSolutions}
             onMouseLeave={closeSolutions}
           >
-            
-
             
             <span
               className={`px-5 py-2 text-sm font-medium transition-all
@@ -92,15 +86,16 @@ export default function Navbar() {
                 shadow-sm
                 ${
                   isSolutionsActive
-                  ? " text-slate-900 hover:bg-white shadow"
-                  : "text-slate-600 hover:text-slate-900 hover:bg-white hover:shadow"
+                  ? "text-black bg-white shadow"
+                  : "text-slate-800 hover:text-black hover:bg-white hover:shadow"
                 }`}
             >
               Solutions
-
+              <span
+                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-primary rounded-full transition-all
+                  ${isSolutionsActive ? "w-4" : "w-0 group-hover:w-4"}`}
+              />
             </span>
-
-
 
 
             {/* 🔽 Mega Menu INSIDE same hover zone */}
@@ -123,12 +118,15 @@ export default function Navbar() {
           >
             Sign In
           </Link> */}
-          <button className="hidden sm:flex items-center justify-center rounded-full h-10 px-6 bg-text-main text-white text-sm font-bold hover:bg-primary transition-all duration-300 shadow-lg shadow-slate-300/50 hover:shadow-indigo-500/30">
-            <Link href="/contact">Contact Us</Link>
-          </button>
+          <Link
+            href="/contact"
+            className="hidden sm:flex items-center justify-center rounded-full h-10 px-6 bg-text-main text-white text-sm font-bold hover:bg-primary transition-all duration-300 shadow-lg shadow-slate-300/50 hover:shadow-indigo-500/30"
+          >
+            Contact Us
+          </Link>
 
           {/* Mobile Menu */}
-                     <button
+          <button
             className="sm:hidden p-2 text-slate-700 hover:text-primary"
             onClick={() => setOpen(!open)}
           >
