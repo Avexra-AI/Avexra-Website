@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-
 interface RelatedBlog {
 	title: string;
 	slug: string;
@@ -15,6 +14,10 @@ interface RelatedBlogsProps {
 
 export default function RelatedBlogs({ blogs }: RelatedBlogsProps) {
 	if (!blogs || blogs.length === 0) return null;
+
+	const uniqueBlogs = Array.from(
+		new Map(blogs.map((blog) => [blog.slug, blog])).values()
+	);
 
 	return (
 		<section className="w-full bg-white border-t border-border-light py-20 relative overflow-hidden">
@@ -45,7 +48,7 @@ export default function RelatedBlogs({ blogs }: RelatedBlogsProps) {
 
 				{/* Grid */}
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-					{blogs.map((blog) => (
+					{uniqueBlogs.map((blog) => (
 						<Link
 							key={blog.slug}
 							href={`/blogs/${blog.slug}`}

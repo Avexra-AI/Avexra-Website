@@ -77,7 +77,7 @@ export default function Navbar() {
 					<div
 						onMouseEnter={openSolutions}
 						onMouseLeave={closeSolutions}
-						className="relative"
+						className=""
 					>
 						<span
 							className={`relative inline-flex items-center px-5 py-2 text-sm font-medium transition-all rounded-full cursor-pointer shadow-sm ${
@@ -108,6 +108,12 @@ export default function Navbar() {
 
 				{/* CTA */}
 				<div className="flex items-center gap-4 pr-1">
+					{/* <Link
+						href="#"
+						className="hidden lg:block text-sm font-medium text-slate-600 hover:text-primary transition-colors"
+					>
+						Sign In
+					</Link> */}
 					<Link
 						href="/contact"
 						className="hidden sm:flex items-center justify-center rounded-full h-10 px-6 bg-text-main text-white text-sm font-bold hover:bg-primary transition-all duration-300 shadow-lg shadow-slate-300/50 hover:shadow-indigo-500/30"

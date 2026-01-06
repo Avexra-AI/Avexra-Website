@@ -1,15 +1,12 @@
-// next.config.js
-module.exports = {
-	images: {
-		remotePatterns: [
-			{
-				protocol: "https",
-				hostname: "images.unsplash.com",
-			},
-			{
-				protocol: "https",
-				hostname: "randomuser.me",
-			},
-		],
-	},
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    domains: [
+      "randomuser.me",
+      "images.unsplash.com",
+      "lh3.googleusercontent.com",
+    ],
+  },
 };
+
+module.exports = nextConfig;

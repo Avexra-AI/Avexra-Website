@@ -239,19 +239,41 @@ html {
 .social-icon {
   @apply text-slate-400 hover:text-primary transition-colors;
 }
-/* Hide scrollbar for Chrome, Safari and Edge */
+
 ::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for Firefox */
 html {
   scrollbar-width: none;
 }
 
-/* Prevent horizontal scroll */
 body {
   overflow-x: hidden;
+}
+
+@layer utilities {
+  .input {
+    @apply w-full rounded-xl bg-white/5 border border-white/10
+    px-4 py-2.5 text-sm text-white
+    placeholder:text-white/40
+    focus:outline-none focus:ring-2 focus:ring-indigo-500;
+  }
+
+  .animate-popup {
+    animation: popup 0.35s ease-out forwards;
+  }
+
+  @keyframes popup {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 }
 
 /* .grid-bg {
