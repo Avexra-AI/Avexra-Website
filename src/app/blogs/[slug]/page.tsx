@@ -17,21 +17,21 @@ import RelatedBlogs from "@/components/blogs/detail/RelatedBlogs";
 import { blogs } from "@/data/blogs";
 import { getBlogBySlug, getRelatedBlogs, calculateReadTime } from "@/lib/blogs";
 
+/* ---------------- PAGE PROPS ---------------- */
 interface PageProps {
-	params: {
+	params: Promise<{
 		slug: string;
-	};
+	}>;
 }
 
+/* ---------------- PAGE ---------------- */
 export default async function BlogDetailPage({ params }: PageProps) {
-	const { slug } = params;
+	const { slug } = await params;
 
 	const blog = getBlogBySlug(blogs, slug);
-
 	if (!blog) notFound();
 
-	const readTime = calculateReadTime(blog.content);
-
+	const readTime = calculateReadTime(blog.content ?? []);
 	const relatedBlogs = getRelatedBlogs(blogs, blog.slug, blog.categories ?? []);
 
 	return (
@@ -47,17 +47,21 @@ export default async function BlogDetailPage({ params }: PageProps) {
 					category={blog.categories?.[0] ?? "Blog"}
 					breadcrumb={[
 						{ label: "Blog", href: "/blogs" },
-						{
-							label: blog.categories?.[0] ?? "Category",
-							href: `/blogs?category=${encodeURIComponent(
-								blog.categories?.[0] ?? ""
-							)}`,
-						},
+						...(blog.categories?.[0]
+							? [
+									{
+										label: blog.categories[0],
+										href: `/blogs?category=${encodeURIComponent(
+											blog.categories[0]
+										)}`,
+									},
+							  ]
+							: []),
 						{ label: blog.title },
 					]}
 					author={{
 						name: blog.author?.name ?? "Unknown Author",
-						role: blog.author?.role ?? "",
+						role: blog.author?.role,
 						image: blog.author?.image,
 					}}
 					publishedAt={blog.publishedAt}
@@ -71,18 +75,19 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
 				{/* BODY */}
 				<div className="w-full max-w-[1200px] px-6 md:px-10 flex flex-col lg:flex-row gap-12 pb-20 relative">
-					<BlogShare />
+					{/* SHARE BAR */}
+					<BlogShare title={blog.title} />
 
 					<article className="flex-1 max-w-[760px] mx-auto">
-						<BlogContent content={blog.content} />
+						<BlogContent content={blog.content ?? []} />
 
 						<BlogInlineCTA
-							title="Build smarter systems."
+							title="Bu      ild smarter systems."
 							description="Get our weekly 'Architecture for AI' digest delivered to your inbox. No fluff, just code and strategy."
 							buttonText="Subscribe"
 						/>
 
-						{blog.tags?.length > 0 && <BlogTags tags={blog.tags} />}
+						{(blog.tags ?? []).length > 0 && <BlogTags tags={blog.tags ?? []} />}
 
 						{blog.author && (
 							<BlogAuthor
@@ -104,8 +109,8 @@ export default async function BlogDetailPage({ params }: PageProps) {
 						blogs={relatedBlogs.map((b) => ({
 							title: b.title,
 							slug: b.slug,
-							category: b.categories?.[0],
-							readTime: b.readTime,
+							category: b.categories?.[0] ?? "Blog",
+							readTime: calculateReadTime(b.content ?? []),
 							coverImage: b.coverImage,
 						}))}
 					/>
