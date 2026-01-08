@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import SolutionsMegaMenu from "./SolutionsMegaMenu";
 import { usePathname } from "next/navigation";
+import { isDragActive } from "framer-motion";
+import { img } from "framer-motion/client";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -14,7 +16,7 @@ export default function Navbar() {
   const isSolutionsActive = pathname.startsWith("/solutions");
 
   const links = [
-    { labeL: "Home", href: "/" },
+    { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Blogs", href: "#" },
     { label: "About Us", href: "/about" },
@@ -51,9 +53,6 @@ export default function Navbar() {
 
         {/* LINKS */}
         <div className="hidden md:flex items-center gap-1 bg-surface-dim/80 rounded-full p-1 border border-slate-200 backdrop-blur-md overflow-visible">
-
-         
-
           {links.map(({ label, href }) => {
             const isActive = pathname === href;
           return(
@@ -65,13 +64,13 @@ export default function Navbar() {
                   isActive
                    ? "text-slate-900 bg-white shadow"
                    : "text-slate-600 hover:text-slate-900 hover:bg-white hover:shadow"
-              } 
-              `}
+              }`}
             >
               {label}
               <span className={`absolute bottom-1 left-1/2-translate-x-1/2 w-0 h-0.5  bg-primary rounded-full transition-all
-                ${isActive ? "w-0" : "w-0 group-hover:w-4"}
-                `}
+                ${isActive ? "w-0" : "w-0 group-hover:w-4"
+
+                }`}
                 />
             </Link>
           );
@@ -79,14 +78,15 @@ export default function Navbar() {
 
           {/* ✅ SOLUTIONS (FIXED) */}
           <div
-            className=""
+            className="relative"
             onMouseEnter={openSolutions}
             onMouseLeave={closeSolutions}
           >
             
 
             
-            <span
+            <button
+              onClick={()=> setSolutionsOpen(!solutionsOpen)}
               className={`px-5 py-2 text-sm font-medium transition-all
                 rounded-full cursor-pointer
                 shadow-sm
@@ -98,7 +98,7 @@ export default function Navbar() {
             >
               Solutions
 
-            </span>
+            </button>
 
 
 
@@ -108,6 +108,7 @@ export default function Navbar() {
               <div
                 onMouseEnter={openSolutions}
                 onMouseLeave={closeSolutions}
+                className="absolute left-1/2 top-full-translate-x-1/2 pt-4"
               >
                 <SolutionsMegaMenu />
               </div>
@@ -126,16 +127,65 @@ export default function Navbar() {
           <button className="hidden sm:flex items-center justify-center rounded-full h-10 px-6 bg-text-main text-white text-sm font-bold hover:bg-primary transition-all duration-300 shadow-lg shadow-slate-300/50 hover:shadow-indigo-500/30">
             <Link href="/contact">Contact Us</Link>
           </button>
-
+        
           {/* Mobile Menu */}
-                     <button
+          <button
             className="sm:hidden p-2 text-slate-700 hover:text-primary"
-            onClick={() => setOpen(!open)}
+            onClick={() => setOpen(!open)} aris-label = "Toggle menu"
           >
-            <span className="material-symbols-outlined">Menu</span>
+             {open ? "✕" : "☰"}
           </button>
-        </div>
+      </div>
       </nav>
+         {/* MOBILE MENU */}
+      {open && (
+        <div className="md:hidden absolute top-full left-0 right-0 mt-4 mx-4 glass-panel rounded-2xl p-4 shadow-xl space-y-2">
+          {links.map(({ label, href }) => {
+            const isActive = pathname === href;
+            return(
+            <Link
+              key={label}
+              href={href}
+              onClick={() => setOpen(false)}
+              className={`block px-4 py-3 rounded-lg font-medium transition
+                ${
+                  isActive
+                   ? "bg-primary text-white"
+                   : "text-slate-700 hover:bg-slate-100"
+                }`}
+            >
+              {label}
+            </Link>
+            );
+})}
+
+          <button
+            onClick={() => setSolutionsOpen(!solutionsOpen)}
+            className={`w-full text-left px-4 py-3 rounded-lg font-medium transition
+              ${
+                isSolutionsActive
+                ? "bg-primary text-white"
+                : "text-slate-700 hover:bg-slate-100"
+              }`}
+          >
+            Solutions
+          </button>
+
+          {solutionsOpen && <SolutionsMegaMenu />}
+
+          <Link
+            href="/contact"
+            onClick={() => setOpen(false)}
+            className="block text-center mt-3 px-4 py-3 rounded-lg bg-primary text-white font-semibold"
+          >
+            Contact Us
+          </Link>
+        
+
+
+        </div>
+      
+        )}
     </div>
   );
 }
