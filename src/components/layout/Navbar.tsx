@@ -14,7 +14,7 @@ export default function Navbar() {
   const isSolutionsActive = pathname.startsWith("/solutions");
 
   const links = [
-    { label: "Home", href: "/" },
+    { labeL: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Blogs", href: "#" },
     { label: "About Us", href: "/about" },
@@ -121,7 +121,7 @@ export default function Navbar() {
             href="#"
             className="hidden lg:block text-sm font-medium text-slate-600 hover:text-primary transition-colors"
           >
-            Sign In
+          
           </Link> */}
           <button className="hidden sm:flex items-center justify-center rounded-full h-10 px-6 bg-text-main text-white text-sm font-bold hover:bg-primary transition-all duration-300 shadow-lg shadow-slate-300/50 hover:shadow-indigo-500/30">
             <Link href="/contact">Contact Us</Link>
@@ -132,7 +132,7 @@ export default function Navbar() {
             className="sm:hidden p-2 text-slate-700 hover:text-primary"
             onClick={() => setOpen(!open)}
           >
-            <span className="material-symbols-outlined">menu</span>
+            <span className="material-symbols-outlined">Menu</span>
           </button>
         </div>
       </nav>
