@@ -1,6 +1,6 @@
 export default function Background() {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+    <div className="fixed inset-0 -z-20 pointer-events-none overflow-hidden">
       {/* Grid */}
       <div className="absolute inset-0 bg-grid-pattern bg-[size:40px_40px] opacity-[0.5]" />
 

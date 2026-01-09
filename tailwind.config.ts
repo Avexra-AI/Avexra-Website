@@ -28,6 +28,7 @@ const config: Config = {
         border: {
           subtle: "var(--border-subtle)",
         },
+        "glass-border": "rgba(255, 255, 255, 0.5)",
       },
 
       fontFamily: {
@@ -38,6 +39,8 @@ const config: Config = {
           "linear-gradient(to right, #e2e8f0 1px, transparent 1px), linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)",
         "radial-glow":
           "radial-gradient(circle at center, rgba(79, 70, 229, 0.1) 0%, transparent 70%)",
+        "card-gradient":
+          "linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 100%)",
       },
       borderRadius: {
         DEFAULT: "1rem",

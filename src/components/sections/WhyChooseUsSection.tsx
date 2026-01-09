@@ -62,7 +62,7 @@ export default function WhyChooseUsSection() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             {/* LEFT */}
             <div className="lg:col-span-5 flex flex-col gap-8">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm w-fit">
+              {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm w-fit">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-indigo-500 opacity-75 animate-ping" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500" />
@@ -70,7 +70,7 @@ export default function WhyChooseUsSection() {
                 <span className="text-xs font-bold uppercase tracking-widest text-slate-600">
                   Why Choose Us
                 </span>
-              </div>
+              </div> */}
 
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1]">
                 Engineering the{" "}
@@ -139,7 +139,7 @@ export default function WhyChooseUsSection() {
                 >
                   <div className="flex items-start gap-6">
                     <div className="w-16 h-16 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
-                      <span className="material-symbols-outlined text-indigo-600 text-3xl">
+                      <span className="material-symbols-outlined text-indigo-600 text-3xl" style={{fontVariationSettings:"'wght' 400",}}>
                         {item.icon}
                       </span>
                     </div>
