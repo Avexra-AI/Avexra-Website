@@ -11,7 +11,6 @@ import BlogContent from "@/components/blogs/detail/BlogContent";
 import BlogShare from "@/components/blogs/detail/BlogShare";
 import BlogInlineCTA from "@/components/blogs/detail/BlogInlineCTA";
 import BlogTags from "@/components/blogs/detail/BlogTags";
-import BlogAuthor from "@/components/blogs/detail/BlogAuthor";
 import RelatedBlogs from "@/components/blogs/detail/RelatedBlogs";
 
 import { blogs } from "@/data/blogs";
@@ -55,15 +54,10 @@ export default async function BlogDetailPage({ params }: PageProps) {
 											blog.categories[0]
 										)}`,
 									},
-							  ]
+								]
 							: []),
 						{ label: blog.title },
 					]}
-					author={{
-						name: blog.author?.name ?? "Unknown Author",
-						role: blog.author?.role,
-						image: blog.author?.image,
-					}}
 					publishedAt={blog.publishedAt}
 					readTime={readTime}
 				/>
@@ -87,18 +81,8 @@ export default async function BlogDetailPage({ params }: PageProps) {
 							buttonText="Subscribe"
 						/>
 
-						{(blog.tags ?? []).length > 0 && <BlogTags tags={blog.tags ?? []} />}
-
-						{blog.author && (
-							<BlogAuthor
-								author={{
-									name: blog.author.name,
-									bio: blog.author.bio,
-									image: blog.author.image,
-									profileUrl: blog.author.profileUrl,
-									twitterUrl: blog.author.twitterUrl,
-								}}
-							/>
+						{(blog.tags ?? []).length > 0 && (
+							<BlogTags tags={blog.tags ?? []} />
 						)}
 					</article>
 				</div>

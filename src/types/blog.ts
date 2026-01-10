@@ -1,12 +1,3 @@
-export interface BlogAuthor {
-	name: string;
-	role?: string;
-	bio?: string;
-	image?: string;
-	profileUrl?: string;
-	twitterUrl?: string;
-}
-
 export interface Blog {
 	_id?: string;
 	title: string;
@@ -16,8 +7,6 @@ export interface Blog {
 	content: any[];
 
 	coverImage?: string;
-
-	author?: BlogAuthor;
 
 	categories: string[];
 	tags?: string[];

@@ -88,7 +88,6 @@ export default function BlogsPage() {
 						slug={featuredBlog.slug}
 						excerpt={featuredBlog.excerpt}
 						category={featuredBlog.categories[0]}
-						author={featuredBlog.author?.name ?? "Unknown"}
 						date={formatBlogDate(featuredBlog.publishedAt)}
 						readTime={calculateReadTime(featuredBlog.content ?? [])}
 						image={featuredBlog.coverImage}

@@ -6,7 +6,6 @@ interface FeaturedBlogProps {
 	slug: string;
 	excerpt: string;
 	category: string;
-	author: string;
 	date: string;
 	readTime: string;
 	image?: string;
@@ -17,13 +16,10 @@ export default function FeaturedBlog({
 	slug,
 	excerpt,
 	category,
-	author,
 	date,
 	readTime,
 	image,
 }: FeaturedBlogProps) {
-	const authorInitial = author?.trim()?.[0] ?? "?";
-
 	return (
 		<section
 			aria-label="Featured blog article"
@@ -58,12 +54,12 @@ export default function FeaturedBlog({
 						<div className="flex items-center justify-between mt-auto">
 							<div className="flex items-center gap-3">
 								<div className="size-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 font-bold text-sm">
-									{authorInitial}
+									A
 								</div>
 
 								<div className="flex flex-col">
 									<span className="text-sm font-semibold text-slate-900">
-										{author}
+										Avexra AI
 									</span>
 									<span className="text-xs text-slate-500">
 										{date} · {readTime}

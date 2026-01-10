@@ -45,15 +45,6 @@ export const postType = defineType({
 			initialValue: false,
 		}),
 
-		// ---------------- AUTHOR ----------------
-		defineField({
-			name: "author",
-			title: "Author",
-			type: "reference",
-			to: [{ type: "author" }],
-			validation: (Rule) => Rule.required(),
-		}),
-
 		// ---------------- COVER IMAGE ----------------
 		defineField({
 			name: "coverImage",
@@ -113,13 +104,11 @@ export const postType = defineType({
 	preview: {
 		select: {
 			title: "title",
-			author: "author.name",
 			media: "coverImage",
 		},
-		prepare({ title, author, media }) {
+		prepare({ title, media }) {
 			return {
 				title,
-				subtitle: author ? `by ${author}` : "",
 				media,
 			};
 		},

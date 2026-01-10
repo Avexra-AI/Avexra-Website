@@ -25,15 +25,6 @@ export const blogs: Blog[] = [
 		coverImage:
 			"https://images.unsplash.com/photo-1639322537504-6427a16b0a28?q=80&w=1600",
 
-		author: {
-			name: "Alex Chen",
-			role: "Principal AI Architect",
-			bio: "Principal AI Architect specializing in LLM integration and autonomous agent frameworks for Fortune 500 companies.",
-			image: "https://randomuser.me/api/portraits/men/32.jpg",
-			profileUrl: "https://linkedin.com/in/alexchen",
-			twitterUrl: "https://twitter.com/alexchenai",
-		},
-
 		content: [
 			/* ---------- INTRO ---------- */
 			{

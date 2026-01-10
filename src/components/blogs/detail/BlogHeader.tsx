@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 interface BlogHeaderProps {
@@ -8,11 +7,6 @@ interface BlogHeaderProps {
 		label: string;
 		href?: string;
 	}[];
-	author: {
-		name: string;
-		role?: string;
-		image?: string;
-	};
 	publishedAt: string;
 	readTime: string;
 }
@@ -21,7 +15,6 @@ export default function BlogHeader({
 	title,
 	category,
 	breadcrumb = [],
-	author,
 	publishedAt,
 	readTime,
 }: BlogHeaderProps) {
@@ -68,24 +61,13 @@ export default function BlogHeader({
 
 				{/* Author */}
 				<div className="flex items-center gap-4 mt-2">
-					{author.image?.trim() ? (
-						<Image
-							src={author.image}
-							alt={author.name}
-							width={48}
-							height={48}
-							className="rounded-full border-2 border-white shadow-md object-cover"
-						/>
-					) : (
-						<div className="size-12 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 font-bold text-sm shadow-sm">
-							{author.name?.charAt(0).toUpperCase()}
-						</div>
-					)}
+					<div className="size-12 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 font-bold text-sm shadow-sm">
+						A
+					</div>
 
 					<div className="flex flex-col">
-						<p className="text-text-main font-bold text-sm">{author.name}</p>
+						<p className="text-text-main font-bold text-sm">Avexra AI</p>
 						<p className="text-text-muted text-xs">
-							{author.role && `${author.role} • `}
 							{publishedAt} • {readTime}
 						</p>
 					</div>
