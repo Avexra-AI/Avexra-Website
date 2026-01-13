@@ -66,7 +66,7 @@ export default function Navbar() {
 
             {/* SOLUTIONS */}
             <div
-              className="relative"
+              className=""
               onMouseEnter={openSolutions}
               onMouseLeave={closeSolutions}
             >
