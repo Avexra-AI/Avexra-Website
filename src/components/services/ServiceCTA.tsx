@@ -1,3 +1,4 @@
+import Link from "next/link";
 interface TitlePart {
 	text: string;
 	highlight?: boolean;
@@ -55,13 +56,21 @@ export default function ServiceCTA({ cta }: ServiceCTAProps) {
 
 				{/* Buttons */}
 				<div className="flex flex-col sm:flex-row w-full sm:w-auto gap-4">
-					<button className="flex items-center justify-center h-14 px-10 bg-black hover:bg-gray-800 text-white text-lg font-bold rounded-xl transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 w-full sm:w-auto">
-						{cta.primary}
-					</button>
+					<Link
+	href="/contact"
+	className="flex items-center justify-center h-14 px-10 bg-black hover:bg-gray-800 text-white text-lg font-bold rounded-xl transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 w-full sm:w-auto"
+>
+	{cta.primary}
+</Link>
 
-					<button className="flex items-center justify-center h-14 px-10 bg-white border border-border-light hover:bg-gray-50 text-text-main text-lg font-medium rounded-xl transition-all w-full sm:w-auto shadow-sm">
-						{cta.secondary}
-					</button>
+
+					<a
+	href="tel:+917618293495" // same number as footer
+	className="flex items-center justify-center h-14 px-10 bg-white border border-border-light hover:bg-gray-50 text-text-main text-lg font-medium rounded-xl transition-all w-full sm:w-auto shadow-sm"
+>
+	{cta.secondary}
+</a>
+
 				</div>
 			</div>
 		</section>
