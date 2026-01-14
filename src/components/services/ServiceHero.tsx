@@ -1,5 +1,5 @@
 import Breadcrumb from "@/components/common/Breadcrumb";
-
+import Link from "next/link";
 interface TitlePart {
 	text: string;
 	highlight?: boolean;
@@ -70,9 +70,11 @@ export default function ServiceHero({ hero, slug }: ServiceHeroProps) {
 
 					{/* CTA */}
 					<div className="flex flex-col sm:flex-row gap-4 mt-4">
-	<button className="flex items-center justify-center h-12 px-8 bg-primary text-white text-base font-bold rounded-xl transition-all hover:bg-primary-dim shadow-sm">
-		{hero.primaryCta}
-	</button>
+	<Link href="/contact">
+		<button className="flex items-center justify-center h-12 px-8 bg-primary text-white text-base font-bold rounded-xl transition-all hover:bg-primary-dim shadow-sm">
+			{hero.primaryCta}
+		</button>
+	</Link>
 
 	{/*
 	<button className="flex items-center justify-center h-12 px-8 bg-white border border-border-light hover:bg-gray-50 text-text-main text-base font-medium rounded-xl transition-all shadow-sm">
