@@ -11,7 +11,6 @@ import SolutionCTA from "@/components/solutions/SolutionCTA";
 
 import { SolutionDetail } from "@/types/solution";
 import { solutionDetails } from "@/data/solutionDetail";
-import SolutionExample from "@/components/solutions/SolutionExample";
 
 interface PageProps {
     params: Promise<{
@@ -34,7 +33,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
             <main className="flex-grow">
                 <SoltionHero hero={solution.hero} slug={slug} />
                 <SolutionFeature feature={solution.features} />
-                <SolutionExample experiment = {solution.experiment}/>
+                
                 <SolutionBestfor bestfor={solution.bestFor} />
                 <SolutionCTA cta={solution.cta} />
             </main>
