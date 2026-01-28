@@ -10,7 +10,6 @@ export default function Page() {
       <Navbar />
       <SolutionSection />
       <Background />
-      <ContactSection />
       <Footer />
     </>
   );
