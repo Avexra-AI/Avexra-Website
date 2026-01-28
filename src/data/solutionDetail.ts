@@ -180,7 +180,7 @@ export const solutionDetails: SolutionDetail[] = [
     // AI -powered Platforms
     
     {
-        slug: "ai-powered Platforms",
+        slug: "ai-powered-platforms",
         hero:{
             titleParts: [
                  {text: "  AI-powered Platforms"},
@@ -267,7 +267,7 @@ export const solutionDetails: SolutionDetail[] = [
     // Reaseach and Advanced AI
 
     {
-        slug: "research & Advanced AI",
+        slug: "research-and-advanced-ai",
         hero:{
             titleParts: [
                  {text: " Research & Advanced AI"},
